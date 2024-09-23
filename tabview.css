@@ -1,0 +1,74 @@
+// Settings
+$primay-color: #666;
+$secondary-color: #d3d3d3;
+$white: #fff;
+
+$desktop-breakpoint: 768px;
+
+// Styles
+p {
+  color: lighten($primay-color, 20%);   
+  line-height: 1.45;
+}
+
+.tab {
+  &__label {
+    background-color: lighten($secondary-color, 6%);
+    border-bottom: 1px solid $white;
+    color: $primay-color;
+    cursor: pointer;
+    display: block;
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+    transition: color 0.5s ease, background-color 0.5s ease;
+  }
+
+  &__input {
+    display: none;
+    &:checked {
+      + .tab__label {
+        background-color: $white;
+        color: $secondary-color;
+      }
+
+      + .tab__label + .tab__content {
+        display: block;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 1.3rem;
+    color: $primay-color;
+  }
+
+  &__content {
+    display: none;
+    line-height: 1;
+    overflow: hidden;
+    padding: 0 1.5rem;
+  }
+}
+
+/*Wide Screens*/
+@media screen and (min-width: $desktop-breakpoint) {
+  .tab {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__label {
+      border-right: 1px solid $white;
+      display: inline-block;
+      order: 1;
+    }
+
+    &__input:checked + .tab__label + .tab__content {
+      display: block;
+    }
+
+    &__content {
+      display: none;
+      order: 100;
+    }
+  }
+}
