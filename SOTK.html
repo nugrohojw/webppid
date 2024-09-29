@@ -50,7 +50,7 @@ body{
 }
 
 a:focus{
-  outline: 2px dashed #f7f7f7;
+  outline: 2px dashed #ff0000;
 }
 
 @media all and (max-width: 767px){
@@ -97,17 +97,17 @@ ul a span{
   display: block;
 }
 
-/*
- 
- */
-
 .administration > li > a{
   margin-bottom: 25px;
 }
 
 .director > li > a{
-  width: 50%;
+  width: 25%;
   margin: 0 auto 0px auto;
+  height: 100px;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .subdirector:after{
@@ -125,6 +125,8 @@ ul a span{
 .departments{
   position: absolute;
   width: 100%;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
 }
 
 .subdirector > li:first-child,
@@ -284,7 +286,7 @@ ul a span{
 }
 
 .department li{ 
-  padding-left: 25px;
+  padding-left: 5px;
   border-bottom: 4px solid #fff;
   height: 80px; 
 }
@@ -298,20 +300,12 @@ ul a span{
   height: 60px;
   vertical-align: middle;
   right: -1px;
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAuMjUiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-  background-image: -moz-linear-gradient(-45deg,  rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 100%) !important;
-  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(0,0,0,0.25)), color-stop(100%,rgba(0,0,0,0)))!important;
-  background-image: -webkit-linear-gradient(-45deg,  rgba(0,0,0,0.25) 0%,rgba(0,0,0,0) 100%)!important;
-  background-image: -o-linear-gradient(-45deg,  rgba(0,0,0,0.25) 0%,rgba(0,0,0,0) 100%)!important;
-  background-image: -ms-linear-gradient(-45deg,  rgba(0,0,0,0.25) 0%,rgba(0,0,0,0) 100%)!important;
-  background-image: linear-gradient(135deg,  rgba(0,0,0,0.25) 0%,rgba(0,0,0,0) 100%)!important;
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40000000', endColorstr='#00000000',GradientType=1 );
 }
 
 .department li a:hover{
   box-shadow: 8px 8px 9px -4px rgba(0,0,0,0.1);
   height: 80px;
-  width: 95%;
+  width: 90%;
   top: 39px;
   background-image: none!important;
 }
@@ -322,86 +316,86 @@ ul a span{
 .department.dep-c a{ background: #FDB0FD; }
 .department.dep-d a{ background: #A3A2A2; }
 .department.dep-e a{ background: #f0f0f0; }
-
-
   </style>
  </head>
  <body>
-  
-
 <div class="content">
-  <center><h3>BAGAN STRUKTUR ORGANISASI PEMERINTAH DAERAH D I YOGYAKARTA</h3></center>
+  <center><h3>BAGAN STRUKTUR ORGANISASI</br>PEMERINTAH DAERAH D. I. YOGYAKARTA</h3></center>
   <figure class="org-chart cf">
     <ul class="administration">
       <li>          
         <ul class="director">
           <li>
-            <a href="#"><span>Gubernur</br>Wakil Gubernur</span></a>
+            <a href="https://jogjaprov.go.id"><span style="margin-top: -25px; display:block;">Gubernur</br>
+			<hr style="border-width: 1px 1px 0; border-style: solid; border-color: #0033cc; width: 70%; margin-left: auto; margin-right: auto;">
+			Wakil Gubernur</span></a>
             <ul class="subdirector">
               <li><a href="#"><span>Parampara Praja</span></a></li>
-            
-			   			
 			</ul>
             <ul class="departments cf">               
-              <li><a href="#"><span>Sekretariat Daerah</span></a></li>
-              
+              <li><a href="https://jogjaprov.go.id/"><span>Sekretariat Daerah</span></a></li>
               <li class="department dep-b">
-                <a href="#"><span>Asisten Setda Bidang Pemerintahan dan Administrasi Umum</span></a>
+                <a href="#"><span style="margin-top: -20px; display:block;">Asisten Setda Bidang Pemerintahan dan Administrasi Umum</span></a>
                 <ul class="sections">
-                  <li class="section"><a href="#"><span>Biro Tata Pemetintahan</span></a></li>
-                  <li class="section"><a href="#"><span>Biro Hukum</span></a></li>
-                  <li class="section"><a href="#"><span>Biro Organisasi</span></a></li>
-                  <li class="section"><a href="#"><span>Biro Umum Humas dan Protokol</span></a></li>
+                  <li class="section"><a href="https://birotapem.jogjaprov.go.id/"><span>Biro Tata Pemetintahan</span></a></li>
+                  <li class="section"><a href="https://birohukum.jogjaprov.go.id/"><span>Biro Hukum</span></a></li>
+                  <li class="section"><a href="https://biroorganisasi.jogjaprov.go.id/"><span>Biro Organisasi</span></a></li>
+                  <li class="section"><a href="https://biroumum.jogjaprov.go.id/"><span style="margin-top: -15px; display:block;">Biro Umum, Hubungan Masyarakat dan Protokol</span></a></li>
                 </ul>
               </li>
               <li class="department dep-b">
-                <a href="#"><span>Asisten Setda Bidang Perekonomian dan Pembangunan</span></a>
+                <a href="#"><span style="margin-top: -15px; display:block;">Asisten Setda Bidang Perekonomian dan Pembangunan</span></a>
                 <ul class="sections">
-                  <li class="section"><a href="#"><span>Biro Adm Perekonomian dan Sumber Daya Alam</span></a></li>
-                  <li class="section"><a href="#"><span>Biro Pengembangan Infrastruktur Wilayah dan Pemmbiayaan Pembangunan</span></a></li>
+                  <li class="section"><a href="https://biroperekonomian.jogjaprov.go.id/"><span>Biro Adm Perekonomian dan Sumber Daya Alam</span></a></li>
+                  <li class="section"><a href="https://biropiwpp.jogjaprov.go.id/"><span style="margin-top: -20px; display:block;">Biro Pengembangan Infrastruktur Wilayah dan Pemmbiayaan Pembangunan</span></a></li>
                 </ul>
               </li>
               <li class="department dep-b">
-                <a href="#"><span>Asisten Setda Biang Pemberdayaan Sumber Daya Masyarakat</span></a>
+                <a href="#"><span style="margin-top: -20px; display:block;">Asisten Setda Biang Pemberdayaan Sumber Daya Masyarakat</span></a>
                 <ul class="sections">
-                  <li class="section"><a href="#"><span>Biro Bina Mental dan Spiritual</span></a></li>
-                  <li class="section"><a href="#"><span>Biro Bina Pemberdayaan Masyarakat</span></a></li>
+                  <li class="section"><a href="https://binamentals.jogjaprov.go.id/"><span>Biro Bina Mental dan Spiritual</span></a></li>
+                  <li class="section"><a href="https://birobermas.jogjaprov.go.id/"><span>Biro Bina Pemberdayaan Masyarakat</span></a></li>
                 </ul>
               </li>
               <li class="department dep-e">
-                <a href="#"><span>Department D</span></a>
+                <a href="#"><span style="background:#cccccc;">BADAN / SETINGKAT BADAN / BLUD</span></a>
                 <ul class="sections">
-                  <li class="section"><a href="#"><span>Paniradya Kaistimewan</span></a></li>
-                  <li class="section"><a href="#"><span>Sekretariat Dewan Perwakilan Rakyat Daerah</span></a></li>
-                  <li class="section"><a href="#"><span>Inspektorat</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Pariwisata</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Koperasi dan Usaha Kecil Menengah</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Perindustrian dan Perdagangan</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Pertanian dan Ketahanan Pangan</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Lingkungan Hidup dan Kehutanan</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Tenaga Kerja dan Transmigrasi</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Pekerjaan Umum, Perumahan dan Energi Sumber Daya Mineral</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Perhubungan</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Pertanahan dan Tata Ruang</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Komunikasi dan Informatika</span></a></li>
-                </ul>
+                  <li class="section"><a href="https://bappeda.jogjaprov.go.id/"><span>Badan Perencanaan Pembangunan Daerah</span></a></li>
+                  <li class="section"><a href="https://bpka.jogjaprov.go.id/"><span>Badan Pengelola Keuangan dan Aset</span></a></li>
+                  <li class="section"><a href="https://bkd.jogjaprov.go.id/"><span>Badan Kepegawaian Daerah</span></a></li>
+                  <li class="section"><a href="https://diklat.jogjaprov.go.id/"><span>Badan Pendidikan dan Pelatihan</span></a></li>
+                  <li class="section"><a href="https://bpbd.jogjaprov.go.id/"><span>Badan Penanggulangan Bencana Daerah</span></a></li>
+                  <li class="section"><a href="https://banhubda.jogjaprov.go.id/"><span>Badan Penghubung Daerah</span></a></li>
+                  <li class="section"><a href="https://kesbangpol.jogjaprov.go.id/"><span>Badan Kesatuan Bangsa dan Politik</span></a></li>
+                  <li class="section"><a href="https://paniradyakaistimewan.jogjaprov.go.id/"><span>Paniradya Kaistimewan</span></a></li>
+                  <li class="section"><a href="https://www.dprd-diy.go.id/"><span>Sekretariat Dewan Perwakilan Rakyat Daerah</span></a></li>
+                  <li class="section"><a href="https://inspektorat.jogjaprov.go.id/"><span>Inspektorat</span></a></li>
+                  <li class="section"><a href="https://satpolpp.jogjaprov.go.id/"><span>Satuan Polisi Pamong Praja</span></a></li>
+                  <li class="section"><a href="httpS://grhasia.jogjaprov.go.id//"><span>Rumah Sakit Jiwa Grhasia</span></a></li>
+                  <li class="section"><a href="https://rsprespira.jogjaprov.go.id/"><span>Rumah Sakit Paru Respira</span></a></li>
+               </ul>
               </li>
               <li class="department dep-e">
-                <a href="#"><span>Department E</span></a>
+                <a href="#"><span style="background:#cccccc;">DINAS-DINAS</span></a>
                 <ul class="sections">
-                  <li class="section"><a href="#"><span>Dinas Kesehatan</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Pendidikan, Pemuda dan Olahraga</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Perpustakaan dan Arsip Daerah</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Sosial</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Kebudayaan</span></a></li>
-                  <li class="section"><a href="#"><span>Dinas Pemberdayaan Perempuan, Perlindungan Anak dan Pengendalian Penduduk</span></a></li>
-                  <li class="section"><a href="#"><span>Satuan Polisi Pamong Praja</span></a></li>
-                  <li class="section"><a href="#"><span>Badan Perencanaan Pembangunan Daerah</span></a></li>
-                  <li class="section"><a href="#"><span>Badan Pengelola Keuangan dan Aset</span></a></li>
-                  <li class="section"><a href="#"><span>Badan Kepegawaian Daerah</span></a></li>
-                  <li class="section"><a href="#"><span>Badan Pendidikan dan Pelatihan</span></a></li>
-                  <li class="section"><a href="#"><span>Badan Kesatuan Bangsa dan Politik</span></a></li>
-                  <li class="section"><a href="#"><span>Badan Penanggulangan Bencana Daerah</span></a></li>
+                  <li class="section"><a href="https://budaya.jogjaprov.go.id/"><span>Dinas Kebudayaan</span></a></li>
+                  <li class="section"><a href="https://dispertaru.jogjaprov.go.id/"><span>Dinas Pertanahan dan Tata Ruang</span></a></li>
+                  <li class="section"><a href="https://dikpora.jogjaprov.go.id/"><span>Dinas Pendidikan, Pemuda dan Olahraga</span></a></li>
+                  <li class="section"><a href="https://dinkes.jogjaprov.go.id/"><span>Dinas Kesehatan</span></a></li>
+                  <li class="section"><a href="https://dinsos.jogjaprov.go.id/"><span>Dinas Sosial</span></a></li>
+                  <li class="section"><a href="https://dishub.jogjaprov.go.id/"><span>Dinas Perhubungan</span></a></li>
+                  <li class="section"><a href="https://dpupesdm.jogjaprov.go.id/"><span style="margin-top: -20px; display:block;">Dinas Pekerjaan Umum, Perumahan dan Energi Sumber Daya Mineral</span></a></li>
+                  <li class="section"><a href="https://nakertrans.jogjaprov.go.id/"><span>Dinas Tenaga Kerja dan Transmigrasi</span></a></li>
+                  <li class="section"><a href="https://visitingjogja.jogjaprov.go.id/"><span>Dinas Pariwisata</span></a></li>
+                  <li class="section"><a href="https://dpkp.jogjaprov.go.id/"><span>Dinas Pertanian dan Ketahanan Pangan</span></a></li>
+                  <li class="section"><a href="https://dlhk.jogjaprov.go.id/"><span>Dinas Lingkungan Hidup dan Kehutanan</span></a></li>
+                  <li class="section"><a href="https://dislautkan.jogjaprov.go.id/"><span>Dinas Kelautan dan Perikanan</span></a></li>
+                  <li class="section"><a href="https://disperindag.jogjaprov.go.id/"><span>Dinas Perindustrian dan Perdagangan</span></a></li>
+                  <li class="section"><a href="https://diskopukm.jogjaprov.go.id/"><span>Dinas Koperasi dan Usaha Kecil Menengah</span></a></li>
+                  <li class="section"><a href="ttps://diskominfo.jogjaprov.go.id/"><span>Dinas Komunikasi dan Informatika</span></a></li>
+                  <li class="section"><a href="https://dpad.jogjaprov.go.id/"><span>Dinas Perpustakaan dan Arsip Daerah</span></a></li>
+                  <li class="section"><a href="https://dp3ap2.jogjaprov.go.id/"><span style="margin-top: -25px; display:block;">Dinas Pemberdayaan Perempuan, Perlindungan Anak dan Pengendalian Penduduk</span></a></li>
+                  <li class="section"><a href="https://jogjainvest.jogjaprov.go.id/"><span style="margin-top: -20px; display:block;">Penanaman Modal dan Pelayanan Terpadu Satu Pintu</span></a></li>
                 </ul>
               </li>
             </ul>
@@ -411,6 +405,5 @@ ul a span{
     </ul>     
   </figure>
 </div>
-
  </body>
 </html>
