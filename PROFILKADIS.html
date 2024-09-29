@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <style type="text/css">
+/**
+ * 	CSS3 Only Horizontal and Vertical Accordion
+ * 	Author: Paul Underwood for Hongkiat.com
+ *  Website: www.paulund.co.uk
+ *  Date: 27/11/11
+ *  Version: 1.0
+ */
+
+ 
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+body { margin: 0; font-size: 13px; line-height: 1.231; }
+body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+
+/*Define Accordion box
+El cuadro afuera del acordion*/
+.accordion { width:830px; overflow:hidden; margin:20px auto; color:#ffffff; background:#2980b9; padding:10px; }
+
+/*General Accordion****************************************************************************/
+/*Set style of open slide*/
+.accordion section:target { background:#ffffff; padding:10px;}
+.accordion section:target:hover { background:#ffffff; }
+.accordion section:target h2 {width:100%;}
+.accordion section:target h2 a{ color:#333; padding:0;}
+.accordion section:target p {display:block;}
+.accordion section h2 a{padding:8px 10px;display:block; font-size:20px; font-weight:normal;color:#eee; text-decoration:none; }
+
+/*set style of closed slide
+CUANDO PASAS POR ENCIMAS DE LOS BOTONES*/
+
+.accordion section{ float:left;	overflow:hidden; color:#333; cursor:pointer; background: #3498db; margin:3px; }
+.accordion section:hover {background:#444;}
+.accordion section p { display:none; }
+.accordion section:after{position:relative;font-size:24px;color:#000;font-weight:bold;}
+.accordion section:nth-child(1):after{content:'1';}
+.accordion section:nth-child(2):after{content:'2';}
+.accordion section:nth-child(3):after{content:'3';}
+.accordion section:nth-child(4):after{content:'4';}
+.accordion section:nth-child(5):after{content:'5';}
+/*End General Accordion****************************************************************************/
+
+/*Horizontal Accordion *********************************************************************/
+.horizontal section{ width:5%; height:250px; 
+	-moz-transition:width 0.2s ease-out; 
+	-webkit-transition:width 0.2s ease-out;
+  	-o-transition:width 0.2s ease-out;
+	-ms-transition:width 0.2s ease-out;
+  	transition:width 0.2s ease-out;
+}
+
+/*Position the number of the slide*/
+.horizontal section:after{top:140px;left:15px;}
+
+/*Header of closed slide*/
+.horizontal section h2 { 
+	-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
+	-o-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+	width:240px; position:relative; left:-100px; top:85px;
+} 
+
+/*On mouse over open slide*/
+.horizontal :target{ width:73%;height:230px; }
+.horizontal :target h2{ top:0px;left:0;
+	-webkit-transform:rotate(0deg);
+	-moz-transform:rotate(0deg);
+	-o-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	transform: rotate(0deg); 
+}
+/*End Horizontal Accordion *********************************************************************/
+
+/*Vertical Accordion *************************************************************************/
+.vertical section{ width:100%; height:40px;
+	-webkit-transition:height 0.2s ease-out;
+	-moz-transition:height 0.2s ease-out;
+  	-o-transition:height 0.2s ease-out;
+	-ms-transition:height 0.2s ease-out;
+  	transition:height 0.2s ease-out;
+}
+/*Set height of the slide*/
+.vertical :target{ height:250px; width:97%; }
+
+.vertical section h2 { position:relative; left:0; top:-3px; }
+
+/*Set position of the number on the slide*/
+.vertical section:after{ top:-60px;left:810px;}
+.vertical section:target:after{ left:-9999px;}
+  </style>
+ </head>
+ <body>   
+      <div BGCOLOR="3498db" class="accordion vertical">
+        <section id="vertabout1"><h2><a href="#vertabout1">Kepala Biro Tata Pemerintahan</a></h2>
+     <div style="background-color: #fff; padding: -50px 0 10px 0;" class="container shadow-sm mb-5 light rounded"> <!--OVERALL CONTAINING DIV FOR STYLISTIC PURPOSES-->
+        <div class="container"> <!--CONTAINER FOR THE MAIN PROFILE "CARD"-->
+          <div class="row d-flex justify-content-center">
+            <img style="height: 200px; width: 150px; margin: 0 35px 20px 0;" src="https://simpeg2.jogjaprov.go.id/prod/assets/foto_pegawai/198110262002031001.jpg" class="shadow-sm rounded">
+            <div style="width: 500px; height: 200px;" class="card">
+              <div class="card-body">
+                <h4 class="card-title">Deanna Mella</h4>
+                <p class="card-text">
+                  Group: Hospital Staff<br>
+                  Age: 34<br>
+                  Risk factor: Low<br>
+                  Postal Code: 30005<br>
+                  NEEDS: Daily check-up via phone TEXT<br><br>
+                <a href="https://birotapem.jogjaprov.go.id/" class="btn btn-primary">website opd &raquo;
+				</a>&nbsp;&nbsp;<img src="https://jogjacagar.jogjaprov.go.id//assets/images/img-icon/instagram.png" width="30px" height="30px" class="shadow-sm rounded">
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+            </p>
+		</section>
+        <section id="vertabout2"><h2><a href="#vertabout2">Seccion 2</a></h2>
+            <p>
+
+
+			</p>
+        </section>
+        <section id="vertabout3"><h2><a href="#vertabout3">Seccion 3</a></h2>
+            <p>Seccion 3</p>
+        </section>
+        <section id="vertabout4"><h2><a href="#vertabout4">Seccion 5</a></h2>
+            <p>Seccion 5</p>
+        </section>
+        <section id="vertabout5"><h2><a href="#vertabout5">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout6"><h2><a href="#vertabout6">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout7"><h2><a href="#vertabout7">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout8"><h2><a href="#vertabout8">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout9"><h2><a href="#vertabout9">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout10"><h2><a href="#vertabout10">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout11"><h2><a href="#vertabout11">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout12"><h2><a href="#vertabout12">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout13"><h2><a href="#vertabout13">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout14"><h2><a href="#vertabout14">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout15"><h2><a href="#vertabout15">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout16"><h2><a href="#vertabout16">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout17"><h2><a href="#vertabout17">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout18"><h2><a href="#vertabout18">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout19"><h2><a href="#vertabout19">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout20"><h2><a href="#vertabout20">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout21"><h2><a href="#vertabout21">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout22"><h2><a href="#vertabout22">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout23"><h2><a href="#vertabout23">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout24"><h2><a href="#vertabout24">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout25"><h2><a href="#vertabout25">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout26"><h2><a href="#vertabout26">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout27"><h2><a href="#vertabout27">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout28"><h2><a href="#vertabout28">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout29"><h2><a href="#vertabout29">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout30"><h2><a href="#vertabout30">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout31"><h2><a href="#vertabout31">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout32"><h2><a href="#vertabout32">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout33"><h2><a href="#vertabout33">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout34"><h2><a href="#vertabout34">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout35"><h2><a href="#vertabout35">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout36"><h2><a href="#vertabout36">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout37"><h2><a href="#vertabout37">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout38"><h2><a href="#vertabout38">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>
+        <section id="vertabout39"><h2><a href="#vertabout39">Seccion 4</a></h2>
+            <p>Seccion 4</p>
+        </section>        
+      </div>
+  </BODY>
+</HTML>
