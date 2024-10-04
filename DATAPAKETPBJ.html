@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+<style type="text/css">
+ @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Muli:400,600,700&display=swap');
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tabs label {
+  order: 1;
+  display: block;
+  padding: 1rem 2rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  background:  #3CC0F8;
+  font-weight: bold;
+  transition: background ease 0.2s;
+}
+.tabs .tab {
+  order: 99;
+  flex-grow: 1;
+  width: 100%;
+  display: none;
+  padding: 1rem;
+  background: #fff;
+}
+.tabs input[type="radio"] {
+  display: none;
+}
+.tabs input[type="radio"]:checked + label {
+  background: #fff;
+}
+.tabs input[type="radio"]:checked + label + .tab {
+  display: block;
+}
+@media (max-width: 45em) {
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+  }
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0rem;
+  }
+}
+body {
+  background: #333;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 5px;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  /*max-width: 60rem;*/
+  margin: 0 auto;
+  font-size: 15px;
+  padding-left:0px;
+  padding-right:0px;
+}
+label, h1, h2{
+  font-family: 'Montserrat', sans-serif;
+  font-weight:300 !important;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.heading{
+  color:#fff;
+  text-align:center;
+  letter-spacing:5px;
+  text-shadow:1px 1px 0px #444,2px 2px 0px #444,3px 3px 0px #444,4px 4px 0px #444,5px 5px 0px #444,6px 6px 0px #444,7px 7px 0px #444,8px 8px 0px #444,9px 9px 0px #444,10px 10px 0px #888;
+}
+.container{
+  position: static;
+  width: 0px;
+  height: 0px;
+  margin-top: 3%;
+}
+.button{
+  position: ;
+  background-color: #3399ff;
+  padding: 3px 10px;
+  border: 1px solid black;
+  border-radius: 7px;
+  box-shadow: 0 3px 1.5px #999;
+  font-family: "Lato", sans-serif;
+  font-size: 11px;
+  user-select: none;
+  text-decoration: none;
+  color: black;
+  margin-left: 50px;
+  margin-top: 120px;
+}
+.button:hover{
+  background-color: #ccccff;
+  cursor: pointer;
+}
+.button:active {
+  background-color: #444cf7;
+  box-shadow: 0 3px 1.5px #666;
+  user-select: none;
+  transform: translate(0%,13%);
+}
+.hidden{
+  left: 52%;
+  top: 54%;
+  z-index: -1;
+  opacity: 0;
+}
+.panel{
+  position: ;
+  width: 600px;
+  height: 800px;
+  border: 2px solid black;
+  background-color: #cccccc;
+  box-shadow: 0 5px 1.5px #999;
+  border-radius: 12px;
+  z-index: 2;
+  display: none;
+}
+.text{
+  position: ;
+  width: 230px;
+  height: 230px;
+  font-family: "Lato", sans-serif;
+  font-size: 25px;
+  user-select: none;
+  text-align: center;
+  inline-size: 200px;
+  margin-left: 20px;
+  margin-top: 90px;
+}
+.x {
+  position: ;
+  padding: 3px 6px;
+  border: 2.1px solid black;
+  background-color: #ff6633;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  user-select: none;
+  border-radius: 4px;
+  right: 5%;
+  bottom: 76%;
+  box-shadow: 0 3px 1.5px rgba(34, 34, 34, 1);
+  z-index: 3;
+  display: none;
+}
+.x:hover{
+  background-color: #ccccff;
+}
+.x:active{
+  box-shadow: 0 2px 1.5px rgba(0, 0, 0, 0.7);
+  transform: translate(0%,14%);
+  background-color: rgba(68,76,247,1);
+}
+.detail {
+  position: sticky;
+  background-color: #99ccff;
+  padding: 3px 10px;
+  border: 2px solid black;
+  border-radius: 12px;
+  box-shadow: 0 3px 1.5px #999;
+  font-family: "Lato", sans-serif;
+  font-size: 11px;
+  user-select: none;
+  text-decoration: none;
+  color: black;
+  margin-left: 50px;
+  margin-top: 120px;
+}
+#toggle:checked ~ .panel{
+  display: block;
+}
+#toggle:checked ~ .button{
+  background-color: #444cf7;
+  box-shadow: none;
+}
+#toggle:checked ~ .x{
+  display: block;
+}
+  </style>
+  <style>
+body{
+/*	background-color:;	
+  font-family: 'Helvetica';
+  width:100%;
+  height:100%;
+  margin:0;
+  padding: 0;
+  padding-top: 10em;
+  position: relative;
+  text-align:center;
+  */
+}
+h1{
+  color: #ffffff;
+  padding: 1em;
+}
+#openPopUp{
+  text-align:center;
+  background-color: #3366cc;
+  padding: 2px 5px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.9em;
+  border-radius: 3.5px;
+  text-decoration: none;
+  transition:background-color 0.15s linear;
+  -webkit-transition:background-color 0.15s linear;
+  -moz-transition:background-color 0.25s linear;
+  -o-transition:background-color 0.25s linear;
+}
+a#openPopUp:hover{
+  cursor: pointer;
+  background-color: #993333;
+}
+.popup{
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  z-index: 9999999;
+  background: rgba(0,0,0, 0.75);
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+
+    -webkit-transition: opacity  0.35s ease;
+    -moz-transition: opacity 0.35s ease;
+    -o-transition: opacity 0.35s ease;
+    transition: opacity 0.35s ease;
+}
+.popup .popUpContainer{
+  width: 100%;
+  max-width: 500px;
+  position: fixed; /* To avoid scroll to target */
+  left: 50%;
+  top: -100vh;
+    -webkit-transition: top  0.35s ease;
+    -moz-transition: top 0.35s ease;
+    -o-transition: top 0.35s ease;
+    transition: top 0.35s ease;
+
+  /* Trick to properly center the element by using negative 
+  1/2 length of element as margin left and top */
+  margin-left: -250px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  border-radius: 2px;
+  z-index: 9999999; 
+}
+.popup h2{
+  padding: 0.5em;
+  text-align: center;
+  color: #444444;
+  margin: 0;
+}
+.popup img{
+  width: 100%;
+  display: block;
+}
+.popup article{
+	height: 30px;
+  background-color: #e67e22;
+}
+/* The cancel button on popup dialog */
+.popup a.closePopUp{ 
+  font-family: verdana;
+  color: #e74c3c;
+  position: absolute;
+  top: 0.9em;
+  right: 3.375em;
+  margin: 0;
+  padding-right: 150px;
+  padding-top: 230px;
+  font-weight: bold;
+  font-size: 1.2em; 
+  background: url(gambar/close2.png) no-repeat;
+}
+.popup a.lihatLengkap{
+  font-family: verdana;
+  color: #00ffff;
+  position: absolute;
+  top: 0.8em;
+  left: 0.8em;
+  margin: 0;
+  padding-right: 500px;
+  padding-top: 230px;
+  font-weight: bold;
+  font-size: 1.2em;/**/
+  background: url(gambar/seemore.png) no-repeat;
+}
+/* The cancel button on popup dialog */
+.popup a:hover{
+  color: #00ffff;
+}
+/* The cancel button on popup dialog */
+.popup a.lihatLengkap:hover{
+  color: #ff3333;
+}
+/* When popup is targeted, by clicking on link with #popup in HTML */
+.popup:target{
+  opacity: 1;
+  top: 0;
+}
+.popup .closePopUpOutSide{
+  position: absolute;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999991; 
+}
+.popup:target .popUpContainer{
+  top: 50px;
+    -webkit-transition: top  0.35s ease;
+    -moz-transition: top 0.35s ease;
+    -o-transition: top 0.35s ease;
+    transition: top 0.35s ease;
+}
+@media  (max-width: 796px) {
+  .popup .popUpContainer{
+    width: 90%;
+    max-width: none;
+    left: 5%;
+    margin-left: 0;
+  }
+  .popup ul{
+    padding: 0 1em 0 1em;
+  }
+  .popup:target .popUpContainer{
+    top: 0px;
+    -webkit-transition: top  0.35s ease;
+    -moz-transition: top 0.35s ease;
+    -o-transition: top 0.35s ease;
+    transition: top 0.35s ease;
+  }
+}
+
+</style>
+</head>
+ <body>
+ <!-- <img src="" width="600" height="192" border="0" alt=""> -->
+ <div class="tabs">
+  <input type="radio" name="tabs" id="tabone" checked="checked">
+  <label for="tabone"><i class="" aria-hidden="true"></i> PBJ TAHUN 2024</label>
+  <div class="tab">
+    <h2 align="center">Pengadaan Barang Jasa Tahun 2024</h2>
+	<!-- PAKET 1 -->
+    <h4 style="color:#cc0000;"><strong>[PAKET 1] Belanja Hibah Barang kepada Badan dan Lembaga Nirlaba, Sukarela Bersifat Sosial Kemasyarakatan (Belanja Hibah sarana Budidaya Perikanan)</strong></h4>
+	<h4><strong><u>A. INFORMASI TAHAP PEMILIHAN</u></strong></h4>
+    <p>
+	<ol>
+	<header><!-- kode dari 1 sd 19 -->
+		<li>Kerangka Acuan Kerja (KAK); <a href="#popUp1" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Harga Perkiraan Sendiri (HPS) serta Riwayat HPS; <a href="#popUp2" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Spesifikasi Teknis; <a href="#popUp3" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Rancangan Kontrak; <a href="#popUp4" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Penyedia atau Lembar Data Kualifikasi; <a href="#popUp5" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Proses Pemilihan atau Lembar Data Pemilihan; <a href="#popUp6" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Daftar Kuantitas dan Harga; <a href="#popUp7" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Jadwal pelaksanaan dan data lokasi pekerjaan; <a href="#popUp8" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Gambar Rancangan Pekerjaan; <a href="#popUp9" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Studi Kelayakan dan Dokumen Lingkungan Hidup, termasuk AMDAL; <a href="#popUp10" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Penawaran Administratif; <a href="#popUp11" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penawaran Penyedia; <a href="#popUp12" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Sertifikat atau Lisensi dari Ditjend Kekayaan Intelektual Kemenkumham; <a href="#popUp13" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemberian Penjelasan; <a href="#popUp14" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pengumuman Negosiasi; <a href="#popUp15" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Sanggah dan Sanggah Banding; <a href="#popUp16" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Penetapan atau Pengumuman Penyedia; <a href="#popUp17" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Hasil Pemilihan Penyedia; <a href="#popUp18" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penunjukan Penyedia Barang/Jasa (SPPBJ). <a href="#popUp19" id="openPopUp">pratinjau &raquo;</a></li>
+		<!-- POP UP -->
+		<aside id="popUp1" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp2" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp3" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp4" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp5" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp6" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp7" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp8" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp9" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp10" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp11" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp12" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp13" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp14" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp15" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp16" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp17" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp18" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp19" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+
+	</ol>
+    </p>
+	<h4><strong><u>B. INFORMASI TAHAP PELAKSANAAN</u></strong></h4>
+    <p>
+	<ol>
+	<header><!-- kode dari 20 sd 31 -->
+		<li>Dokumen Kontrak yang telah ditandatangani beserta Perubahan Kontrak <a href="#popUp20" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Ringkasan Kontrak <a href="#popUp21" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Mulai Kerja <a href="#popUp22" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pelaksanaan <a href="#popUp23" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Uang Muka <a href="#popUp24" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pemeliharaan <a href="#popUp25" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Tagihan <a href="#popUp26" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Membayar <a href="#popUp27" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Pencairan Dana <a href="#popUp28" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Pelaksanaan Pekerjaan <a href="#popUp29" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Penyelesaian Pekerjaan <a href="#popUp30" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemeriksaan Hasil Pekerjaan <a href="#popUp31" id="openPopUp">pratinjau &raquo;</a></li>
+		<!-- POP UP -->
+		<aside id="popUp20" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp21" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp22" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp23" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp24" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp25" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp26" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp27" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp28" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp29" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp30" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+		<!-- POP UP -->
+		<aside id="popUp31" class="popup">
+		<h4 align="left"><a href="https://ppid.jogjaprov.go.id/permohonan-informasi#permohonan" class="lihatLengkap"></h4>
+		<h4 align="right"></a><a href="#!" class="closePopUp"></a></h4>
+		<div class="popUpContainer"><article><div style="display:flex; align-items:flex-start; justify-content:center; ">
+		<iframe src="https://drive.google.com/file/d/1WoPrqAIK1eVepsq9uwhHs0wnW9Ljievx/preview?usp=embed_googleplus" style="border: 0; width: 600px; height: 800px; position: absolute;" allowfullscreen></iframe></div></article></div>
+		</aside>
+	</ol>
+	<hr style="border-width: 1px 1px 0; border-style: solid; border-color: #0033cc; width: 50%; margin-left: auto; margin-right: auto;">
+    </p>
+	<!-- PAKET 2 -->
+	<h4 style="color:#cc0000;"><strong>[PAKET 2] Belanja Pengerjaan Interior Custom Pembangunan Gedung UPT Kulit Manding</strong></h4>
+    <p>
+	<ul>
+		<li>Kerangka Acuan Kerja (KAK); <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Harga Perkiraan Sendiri (HPS) serta Riwayat HPS; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Spesifikasi Teknis; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Rancangan Kontrak; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Penyedia atau Lembar Data Kualifikasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Proses Pemilihan atau Lembar Data Pemilihan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Daftar Kuantitas dan Harga; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Jadwal pelaksanaan dan data lokasi pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Gambar Rancangan Pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Studi Kelayakan dan Dokumen Lingkungan Hidup, termasuk AMDAL; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Penawaran Administratif; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penawaran Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Sertifikat atau Lisensi dari Ditjend Kekayaan Intelektual Kemenkumham; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemberian Penjelasan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pengumuman Negosiasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Sanggah dan Sanggah Banding; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Penetapan atau Pengumuman Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Hasil Pemilihan Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penunjukan Penyedia Barang/Jasa (SPPBJ). <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p>
+	<h4><strong><u>B. INFORMASI TAHAP PELAKSANAAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Dokumen Kontrak yang telah ditandatangani beserta Perubahan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Ringkasan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Mulai Kerja <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pelaksanaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Uang Muka <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pemeliharaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Tagihan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Membayar <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Pencairan Dana <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Pelaksanaan Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Penyelesaian Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemeriksaan Hasil Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p><hr style="border-width: 1px 1px 0; border-style: solid; border-color: #0033cc; width: 50%; margin-left: auto; margin-right: auto;">
+	<!-- PAKET 3 -->
+    <h4 style="color:#cc0000;"><strong>[PAKET 3] Pengadaan Barang Jasa Tahun 2024</strong></h4>
+	<h4><strong><u>A. INFORMASI TAHAP PEMILIHAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Kerangka Acuan Kerja (KAK); <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Harga Perkiraan Sendiri (HPS) serta Riwayat HPS; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Spesifikasi Teknis; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Rancangan Kontrak; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Penyedia atau Lembar Data Kualifikasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Proses Pemilihan atau Lembar Data Pemilihan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Daftar Kuantitas dan Harga; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Jadwal pelaksanaan dan data lokasi pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Gambar Rancangan Pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Studi Kelayakan dan Dokumen Lingkungan Hidup, termasuk AMDAL; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Penawaran Administratif; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penawaran Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Sertifikat atau Lisensi dari Ditjend Kekayaan Intelektual Kemenkumham; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemberian Penjelasan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pengumuman Negosiasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Sanggah dan Sanggah Banding; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Penetapan atau Pengumuman Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Hasil Pemilihan Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penunjukan Penyedia Barang/Jasa (SPPBJ). <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p>
+	<h4><strong><u>B. INFORMASI TAHAP PELAKSANAAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Dokumen Kontrak yang telah ditandatangani beserta Perubahan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Ringkasan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Mulai Kerja <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pelaksanaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Uang Muka <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pemeliharaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Tagihan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Membayar <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Pencairan Dana <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Pelaksanaan Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Penyelesaian Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemeriksaan Hasil Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p>
+  </div>
+</input>
+  <input type="radio" name="tabs" id="tabtwo">
+  <label for="tabtwo"><i class="" aria-hidden="true"></i> PBJ TAHUN 2023</label>
+  <div class="tab">
+    <h2 align="center">Pengadaan Barang Jasa Tahun 2023</h2>
+	<!-- PAKET 1 -->
+    <h4 style="color:#cc0000;"><strong>[PAKET 1] Pembangunan Jalan dan Jembatan Ruas Tawang - Ngalang Segmen 2 dan Segmen 3</strong></h4>
+	<h4><strong><u>A. INFORMASI TAHAP PEMILIHAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Kerangka Acuan Kerja (KAK); <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Harga Perkiraan Sendiri (HPS) serta Riwayat HPS; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Spesifikasi Teknis; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Rancangan Kontrak; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Penyedia atau Lembar Data Kualifikasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Proses Pemilihan atau Lembar Data Pemilihan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Daftar Kuantitas dan Harga; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Jadwal pelaksanaan dan data lokasi pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Gambar Rancangan Pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Studi Kelayakan dan Dokumen Lingkungan Hidup, termasuk AMDAL; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Penawaran Administratif; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penawaran Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Sertifikat atau Lisensi dari Ditjend Kekayaan Intelektual Kemenkumham; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemberian Penjelasan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pengumuman Negosiasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Sanggah dan Sanggah Banding; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Penetapan atau Pengumuman Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Hasil Pemilihan Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penunjukan Penyedia Barang/Jasa (SPPBJ). <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p>
+	<h4><strong><u>B. INFORMASI TAHAP PELAKSANAAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Dokumen Kontrak yang telah ditandatangani beserta Perubahan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Ringkasan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Mulai Kerja <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pelaksanaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Uang Muka <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pemeliharaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Tagihan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Membayar <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Pencairan Dana <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Pelaksanaan Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Penyelesaian Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemeriksaan Hasil Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p><hr style="border-width: 1px 1px 0; border-style: solid; border-color: #0033cc; width: 50%; margin-left: auto; margin-right: auto;">
+	<!-- PAKET 2 -->
+    <h4 style="color:#cc0000;"><strong>[PAKET 2] Preservasi Jalan Ruas Denggung - Wonorejo - Tambakan</strong></h4>
+	<h4><strong><u>A. INFORMASI TAHAP PEMILIHAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Kerangka Acuan Kerja (KAK); <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Harga Perkiraan Sendiri (HPS) serta Riwayat HPS; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Spesifikasi Teknis; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Rancangan Kontrak; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Penyedia atau Lembar Data Kualifikasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Proses Pemilihan atau Lembar Data Pemilihan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Daftar Kuantitas dan Harga; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Jadwal pelaksanaan dan data lokasi pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Gambar Rancangan Pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Studi Kelayakan dan Dokumen Lingkungan Hidup, termasuk AMDAL; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Penawaran Administratif; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penawaran Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Sertifikat atau Lisensi dari Ditjend Kekayaan Intelektual Kemenkumham; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemberian Penjelasan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pengumuman Negosiasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Sanggah dan Sanggah Banding; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Penetapan atau Pengumuman Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Hasil Pemilihan Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penunjukan Penyedia Barang/Jasa (SPPBJ). <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p>
+	<h4><strong><u>B. INFORMASI TAHAP PELAKSANAAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Dokumen Kontrak yang telah ditandatangani beserta Perubahan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Ringkasan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Mulai Kerja <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pelaksanaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Uang Muka <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pemeliharaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Tagihan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Membayar <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Pencairan Dana <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Pelaksanaan Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Penyelesaian Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemeriksaan Hasil Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p><hr style="border-width: 1px 1px 0; border-style: solid; border-color: #0033cc; width: 50%; margin-left: auto; margin-right: auto;">
+	<!-- PAKET 3 -->
+    <h4 style="color:#cc0000;"><strong>[PAKET 3] Penyusunan Amdal Lingkungan dan Andal Lalin Gedung DPRD DIY</strong></h4>
+	<h4><strong><u>A. INFORMASI TAHAP PEMILIHAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Kerangka Acuan Kerja (KAK); <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Harga Perkiraan Sendiri (HPS) serta Riwayat HPS; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Spesifikasi Teknis; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Rancangan Kontrak; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Penyedia atau Lembar Data Kualifikasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Proses Pemilihan atau Lembar Data Pemilihan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Daftar Kuantitas dan Harga; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Jadwal pelaksanaan dan data lokasi pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Gambar Rancangan Pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Studi Kelayakan dan Dokumen Lingkungan Hidup, termasuk AMDAL; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Penawaran Administratif; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penawaran Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Sertifikat atau Lisensi dari Ditjend Kekayaan Intelektual Kemenkumham; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemberian Penjelasan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pengumuman Negosiasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Sanggah dan Sanggah Banding; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Penetapan atau Pengumuman Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Hasil Pemilihan Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penunjukan Penyedia Barang/Jasa (SPPBJ). <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p>
+	<h4><strong><u>B. INFORMASI TAHAP PELAKSANAAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Dokumen Kontrak yang telah ditandatangani beserta Perubahan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Ringkasan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Mulai Kerja <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pelaksanaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Uang Muka <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pemeliharaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Tagihan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Membayar <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Pencairan Dana <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Pelaksanaan Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Penyelesaian Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemeriksaan Hasil Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p>
+  </div>
+</input>
+
+  <input type="radio" name="tabs" id="tabthree">
+  <label for="tabthree"><i class="fa fa-commenting" aria-hidden="true"></i> PBJ TAHUN 2022</label>
+  <div class="tab">
+    <h2 align="center">Pengadaan Barang Jasa Tahun 2022</h2>
+	<!-- PAKET 1 -->
+    <h4 style="color:#cc0000;"><strong>[PAKET 1] Belanja Hibah Barang kepada Badan dan Lembaga Nirlaba, Sukarela Bersifat Sosial Kemasyarakatan (Pengembangan Ternak Sapi Potong) Tahun Anggaran 2022</strong></h4>
+	<h4><strong><u>A. INFORMASI TAHAP PEMILIHAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Kerangka Acuan Kerja (KAK); <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Harga Perkiraan Sendiri (HPS) serta Riwayat HPS; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Spesifikasi Teknis; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Rancangan Kontrak; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Penyedia atau Lembar Data Kualifikasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Proses Pemilihan atau Lembar Data Pemilihan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Daftar Kuantitas dan Harga; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Jadwal pelaksanaan dan data lokasi pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Gambar Rancangan Pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Studi Kelayakan dan Dokumen Lingkungan Hidup, termasuk AMDAL; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Penawaran Administratif; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penawaran Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Sertifikat atau Lisensi dari Ditjend Kekayaan Intelektual Kemenkumham; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemberian Penjelasan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pengumuman Negosiasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Sanggah dan Sanggah Banding; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Penetapan atau Pengumuman Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Hasil Pemilihan Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penunjukan Penyedia Barang/Jasa (SPPBJ). <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p>
+	<h4><strong><u>B. INFORMASI TAHAP PELAKSANAAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Dokumen Kontrak yang telah ditandatangani beserta Perubahan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Ringkasan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Mulai Kerja <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pelaksanaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Uang Muka <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pemeliharaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Tagihan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Membayar <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Pencairan Dana <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Pelaksanaan Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Penyelesaian Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemeriksaan Hasil Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p><hr style="border-width: 1px 1px 0; border-style: solid; border-color: #0033cc; width: 50%; margin-left: auto; margin-right: auto;">
+	<!-- PAKET 2 -->
+    <h4 style="color:#cc0000;"><strong>[PAKET 2] Peningkatan Ruas Jalan Pandanan-Candirejo</strong></h4>
+	<h4><strong><u>A. INFORMASI TAHAP PEMILIHAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Kerangka Acuan Kerja (KAK); <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Harga Perkiraan Sendiri (HPS) serta Riwayat HPS; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Spesifikasi Teknis; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Rancangan Kontrak; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Penyedia atau Lembar Data Kualifikasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Proses Pemilihan atau Lembar Data Pemilihan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Daftar Kuantitas dan Harga; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Jadwal pelaksanaan dan data lokasi pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Gambar Rancangan Pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Studi Kelayakan dan Dokumen Lingkungan Hidup, termasuk AMDAL; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Penawaran Administratif; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penawaran Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Sertifikat atau Lisensi dari Ditjend Kekayaan Intelektual Kemenkumham; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemberian Penjelasan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pengumuman Negosiasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Sanggah dan Sanggah Banding; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Penetapan atau Pengumuman Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Hasil Pemilihan Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penunjukan Penyedia Barang/Jasa (SPPBJ). <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p>
+	<h4><strong><u>B. INFORMASI TAHAP PELAKSANAAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Dokumen Kontrak yang telah ditandatangani beserta Perubahan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Ringkasan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Mulai Kerja <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pelaksanaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Uang Muka <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pemeliharaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Tagihan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Membayar <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Pencairan Dana <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Pelaksanaan Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Penyelesaian Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemeriksaan Hasil Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p><hr style="border-width: 1px 1px 0; border-style: solid; border-color: #0033cc; width: 50%; margin-left: auto; margin-right: auto;">
+	<!-- PAKET 3 -->
+    <h4 style="color:#cc0000;"><strong>[PAKET 3] Penataan Situs Cagar Budaya Kerta</strong></h4>
+	<h4><strong><u>A. INFORMASI TAHAP PEMILIHAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Kerangka Acuan Kerja (KAK); <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Harga Perkiraan Sendiri (HPS) serta Riwayat HPS; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Spesifikasi Teknis; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Rancangan Kontrak; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Penyedia atau Lembar Data Kualifikasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Persyaratan Proses Pemilihan atau Lembar Data Pemilihan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Daftar Kuantitas dan Harga; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Jadwal pelaksanaan dan data lokasi pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Gambar Rancangan Pekerjaan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Studi Kelayakan dan Dokumen Lingkungan Hidup, termasuk AMDAL; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Dokumen Penawaran Administratif; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penawaran Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Sertifikat atau Lisensi dari Ditjend Kekayaan Intelektual Kemenkumham; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemberian Penjelasan; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pengumuman Negosiasi; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Sanggah dan Sanggah Banding; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Penetapan atau Pengumuman Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Hasil Pemilihan Penyedia; <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Penunjukan Penyedia Barang/Jasa (SPPBJ). <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p>
+	<h4><strong><u>B. INFORMASI TAHAP PELAKSANAAN</u></strong></h4>
+    <p>
+	<ul>
+		<li>Dokumen Kontrak yang telah ditandatangani beserta Perubahan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Ringkasan Kontrak <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Mulai Kerja <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pelaksanaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Uang Muka <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Jaminan Pemeliharaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Tagihan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Membayar <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Surat Perintah Pencairan Dana <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Pelaksanaan Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Laporan Penyelesaian Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+		<li>Berita Acara Pemeriksaan Hasil Pekerjaan <a href="#popUp" id="openPopUp">pratinjau &raquo;</a></li>
+	</ul>
+    </p>
+  </div>
+  </input>
+
+</div>
+ </body>
+</html>
