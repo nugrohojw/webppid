@@ -308,9 +308,14 @@ main {
   }
 }
   </style>
+<script>
+  window.onload = function() {
+  document.getElementById("result").innerHTML = document.URL;
+}
+	
+</script>
 </head>
  <body>
- <!-- <img src="" width="600" height="192" border="0" alt=""> -->
  <div class="tabs">
   <input type="radio" name="tabs" id="tabone" checked="checked">
   <label for="tabone"><i class="" aria-hidden="true"></i> NOMINATIF PEGAWAI</label>
@@ -320,7 +325,8 @@ main {
   <div class="container">
   <aside>
     <div class="container-agenda" id="agenda">
-      <h3 class="title">ORGANISASI PERANGKAT DAERAH<br></h3>
+      <h4 class=""><a href="" onclick="location.href=this.href" style="padding: 0.3rem 1rem; margin-right: 0.2rem; background: #3CC0F8; font-weight: bold;">STATISTIK &raquo;</a></h4><br>
+      <h3 class="title">NORGANISASI PERANGKAT DAERAH<br></h3>
       <ul class="list">
         <li><a href="#1">Sekretariat Daerah</a></li>
         <li><a href="#2">Biro Tata Pemerintahan </a></li>
@@ -609,8 +615,6 @@ main {
 
   </main>
 </div>
-
-
 
   </div>
 </input>
